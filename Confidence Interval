@@ -1,3 +1,7 @@
+#A confidence interval is an interval within which we are confident (with a certain percentage of confidence) the population parameter will fall
+# Right now, I want to try make a function for calculate confidence interval with parameters data, alpha, and population standar variance if known,
+# I will upload the data I was used to calculate CI
+
 import math as m
 import pandas as pd
 import scipy.stats as st
