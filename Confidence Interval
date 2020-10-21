@@ -1,1 +1,34 @@
+import math as m
+import pandas as pd
+import scipy.stats as st
 
+data = pd.read_csv('Population-variance-known-z-score-exercise.csv')
+data.head()
+real_data = data['Dataset']
+
+def mean(data):
+    sum = 0
+    for dt in data:
+        sum += dt
+    mean = sum/len(data)
+    return mean
+ 
+def sd_(data):
+    sum = 0
+    for dt in data:
+        sum += (dt-mean(data)) **2
+    sd = m.sqrt(sum/ (len(data)-1))
+    return sd
+
+# Confidence interval with one sample
+# if the varians populations is unkown, just set sd= 0
+def C_I (data,alpha,sd):
+    if sd != 0 :
+        me = st.norm.ppf(1-(alpha/2))*(sd/m.sqrt(len(data)))    
+        print ("with confidence",(1-alpha)*100, "%", ",mean of population is between",(mean(data)-me), "and" 
+               ,(mean(data)+me))
+    elif sd == 0 :
+        me = st.t.ppf((1-(alpha/2)),(len(data)-1))*(sd_(data)/m.sqrt(len(data)))
+        print ("with confidence",(1-alpha)*100, "%", ",mean of population is between",(mean(data)-me), "and" 
+               ,(mean(data)+me))
+ 
