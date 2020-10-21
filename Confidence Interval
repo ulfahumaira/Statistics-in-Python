@@ -4,6 +4,7 @@ import scipy.stats as st
 
 data = pd.read_csv('Population-variance-known-z-score-exercise.csv')
 data.head()
+
 real_data = data['Dataset']
 
 def mean(data):
