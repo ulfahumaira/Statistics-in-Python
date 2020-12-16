@@ -26,7 +26,7 @@ def sd_(data):
     return sd
 
 # Confidence interval with one sample
-# if the varians populations is unkown, just set sd= 0
+# if the varians populations is unknown, just set sd= 0
 def C_I (data,alpha,sd):
     if sd != 0 :
         me = st.norm.ppf(1-(alpha/2))*(sd/m.sqrt(len(data)))    
